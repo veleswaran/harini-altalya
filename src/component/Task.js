@@ -1,20 +1,42 @@
 import { useState } from "react";
 
+
 export default function Task() {
     let [data, setData] = useState({})
-    let [users,setUsers] = useState([])
+    let [users, setUsers] = useState([])
+    let [isEdit, setEdit] = useState(true);
 
     function handleChange(e) {
         setData({ ...data, [e.target.id]: e.target.value })
     }
+
+    function handleDelete(name) {
+        setUsers(users.filter((del) => del.name !== name))
+    }
+
+
+    function handleupdate(name) {
+        setData((users.filter((val) => val.name === name)[0]))
+        setEdit(false)
+    }
+
+
     function handleSubmit(e) {
         e.preventDefault()
-        setUsers([...users,data])
+        if (isEdit) {
+            setUsers([...users, data])
+            
+        }
+        else{
+            setEdit(true)
+            setUsers(users.map((val) => val.name === data.name?data:val))
+        }
+
         setData({
-            name:"",
-            phone:"",
-            email:"",
-            age:""
+            name: "",
+            phone: "",
+            email: "",
+            age: ""
         })
         console.log(data)
     }
@@ -63,16 +85,22 @@ export default function Task() {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((data)=>
-                         <tr>
-                            <td>{data["name"]}</td>
-                            <td>{data["phone"]}</td>
-                            <td>{data["email"]}</td>
-                            <td>{data["age"]}</td>
-                        </tr>
+                        {users.map((data) =>
+                            <tr>
+                                <td>{data["name"]}</td>
+                                <td>{data["phone"]}</td>
+                                <td>{data["email"]}</td>
+                                <td>{data["age"]}</td>
+                                <td>
+                                    <button className="btn btn-danger" onClick={() => handleDelete(data["name"])}>Delete</button>
+                                </td>
+                                <td>
+                                    <button className="btn btn-primary" onClick={() => handleupdate(data["name"])}>Update</button>
+                                </td>
+                            </tr>
                         )}
-                       
-                      
+
+
                     </tbody>
                 </table>
             </div>
