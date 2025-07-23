@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Welcome from './component/welcome.js';
 import About from './component/about.js';
-import Form from './component/form.js';
+// import Form from './component/form.js';
 import List from './component/List.js';
 import Productcard from './component/Productcard.js';
 import Form1 from './component/Form1.js';
@@ -13,6 +13,16 @@ import Product from './component/Product.js';
 import Instagram from './component/Instagram.js';
 import Students from './component/Students.js';
 import Store1 from './component/Store1.js';
+import Table from './component/Table.js';
+import Forms from './component/Forms.js';
+import Usertable from './component/Usertable.js';
+import Details from './component/Details.js';
+import Content from './component/posts/Create.js';
+import Contenttable from './component/posts/List.js';
+import PostCreate from './component/posts/Create.js';
+import PostList from './component/posts/List.js';
+import PostUpdate from './component/posts/Update.js';
+import Userupdate from './component/Userupdate.js';
 
 
 
@@ -21,14 +31,14 @@ import Store1 from './component/Store1.js';
 function App() {
   return (
     <>
-{/* 
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Welcome />}></Route>
-          <Route path='/about' element={<About />}></Route>
-          <Route path='/form' element={<Form />}></Route>
-        </Routes>
-      </BrowserRouter>
+      {/* 
+      // <BrowserRouter>
+      //   <Routes>
+      //     <Route path='/' element={<Welcome />}></Route>
+      //     <Route path='/about' element={<About />}></Route>
+      //     <Route path='/form' element={<Form />}></Route>
+      //   </Routes>
+      // </BrowserRouter>
       <List User={[{
         Name: 'Alex',
         Email: 'alex123',
@@ -58,13 +68,28 @@ function App() {
 
       ]} /> */}
 
-      <Product/>
-{/* <Users/> */}
-{/* <Store1/> */}
+      {/* <Product/> */}
+      {/* <Users/> */}
+      {/* <Store1/> */}
       {/* <Instagram /> */}
       {/* <Task /> */}
       {/* <Students/> */}
-      
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Content />}></Route>
+          <Route path='/contenttable' element={<Contenttable />}></Route>
+          <Route path='/posts' element={<PostList />}></Route>
+          <Route path='/posts/create' element={<PostCreate />}></Route>
+          <Route path='/posts/update' element={<PostUpdate />}></Route>
+          <Route path='/create' element={<Forms />}></Route>
+          <Route path='/usertable' element={<Usertable />}></Route>
+          <Route path='/userupdate' element={<Userupdate />}></Route>
+          <Route path='/list' element={<Contenttable />}></Route>
+          <Route path='/contenttable' element={<Contenttable />}></Route>
+         
+        </Routes>
+      </BrowserRouter>
+
     </>
   )
 }

@@ -32,7 +32,7 @@ export default function Students() {
             Name: "",
             Degree: "",
             Mobile: "",
-            Email: "",
+            Email: "",  
             Password: ""
         })
         console.log(data)
